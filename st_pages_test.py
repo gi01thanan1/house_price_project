@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+#from PIL import Image
 import numpy as np
 import pandas as pd
 
@@ -25,7 +25,7 @@ hide_streamlit_style = """
     """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-#st.image("house_3.jfif")
+st.image("house_3.jpg")
 
 
 # bottom_image = st.file_uploader('house_3', type='jfif', key=6)
@@ -42,9 +42,10 @@ class LogTransfomer(BaseEstimator, TransformerMixin):
     def transform(self, x, y=None):
         assert self.n_features_in_ == x.shape[1]
         return np.log1p(x)
-image = Image.open('house_3.jfif')
-new_image = image.resize((700, 200))
-st.image(new_image)
+# image = Image.open('house_3.jfif')
+# new_image = image.resize((700, 200))
+# st.image(new_image)
+# st.write(Image.__version__)
 pg = st.navigation([st.Page("Home.py",title="Welcome", icon="👋"), st.Page("EDA and Visualization.py", icon="📈"),st.Page("Prediction.py",icon="🏡")])#":material/target:")])
 #pages/1_📈_Plotting_Demo.py
 pg.run()
